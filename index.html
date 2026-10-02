@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гибрид Сервис — ремонт и обслуживание гибридов в Комсомольске-на-Амуре</title>
+<meta name="description" content="Специализированный сервис по обслуживанию гибридных автомобилей и чип-тюнинга в Комсомольске-на-Амуре. Рейтинг 5.0 в 2ГИС, 648 оценок. Аллея Труда, 8/3Б.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1219;--bg2:#0e1821;--card:#122029;--card2:#172833;--line:#21343f;
+  --text:#f2f6f4;--muted:#9fb0aa;--gold:#5fd615;--gold2:#30a010;
+  --grad:linear-gradient(180deg,#7be52a 0%,#36b011 100%);
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:Montserrat,system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.gold{color:var(--gold)}
+svg{flex-shrink:0}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(10,18,25,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;gap:22px;height:76px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-ico{width:42px;height:42px;border-radius:12px;background:var(--grad);display:grid;place-items:center;box-shadow:0 0 20px rgba(80,200,20,.35)}
+.logo b{display:block;font-size:19px;font-weight:900;letter-spacing:.5px;line-height:1}
+.logo small{display:block;font-size:11px;color:var(--gold);margin-top:3px}
+nav{display:flex;gap:22px;font-size:14px;font-weight:600}
+nav a:hover{color:var(--gold)}
+.rate-pill{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:30px;padding:5px 12px;font-size:13px;font-weight:700}
+.rate-pill:hover{border-color:var(--gold)}
+.rate-pill span{color:var(--muted);font-weight:500}
+.hdr-right{margin-left:auto;display:flex;align-items:center;gap:14px}
+.phone{font-weight:700;font-size:15px;white-space:nowrap}
+.msg{width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+.msg.wa{background:#25d366}.msg.mx{background:linear-gradient(135deg,#3b82f6,#8b5cf6)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:inherit;font-weight:700;font-size:15px;border-radius:12px;padding:15px 28px;cursor:pointer;border:0;transition:.2s}
+.btn-gold{background:var(--grad);color:#0a1219;box-shadow:0 6px 24px rgba(70,190,15,.28)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(70,190,15,.45)}
+.btn-dark{background:#0f1b23;color:var(--text);border:1.5px solid var(--gold)}
+.btn-dark:hover{background:#172833}
+.btn-sm{padding:11px 20px;font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+.burger{display:none;margin-left:auto;background:none;border:0;color:var(--text);cursor:pointer}
+.mob-menu{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:40px 0 0;text-align:center;overflow:hidden;
+  background:radial-gradient(ellipse 60% 50% at 50% 85%,rgba(70,190,15,.18),transparent 70%),
+             linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/48px 48px,
+             linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/48px 48px,var(--bg)}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(80,200,20,.4);background:rgba(80,200,20,.06);border-radius:30px;padding:8px 16px;font-size:13px;font-weight:600}
+.hero h1{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.12;margin:26px auto 18px;max-width:900px}
+.city{white-space:nowrap}
+.hero p.lead{color:var(--muted);font-size:clamp(15px,2vw,19px);max-width:640px;margin:0 auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;margin:34px 0 22px;flex-wrap:wrap}
+.ticks{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;font-size:14px;color:#cfdcd6}
+.ticks span{display:flex;align-items:center;gap:8px}
+.tick{width:18px;height:18px;border-radius:50%;background:var(--gold);display:grid;place-items:center}
+.hero-car{position:relative;max-width:820px;margin:30px auto 0;height:300px}
+.hero-car .car{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);width:min(680px,92%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.8))}
+.podium{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(620px,96%);height:90px;border-radius:50%;
+  background:radial-gradient(ellipse at center,#142a18 0%,#0b1418 60%);border:2px solid var(--gold);
+  box-shadow:0 0 40px rgba(70,190,15,.55),inset 0 0 30px rgba(70,190,15,.25)}
+.podium::after{content:"";position:absolute;inset:14px 40px;border-radius:50%;border:1px solid rgba(80,200,20,.35)}
+
+/* ---------- sections ---------- */
+section{padding:90px 0}
+.sec-title{text-align:center;font-size:clamp(26px,3.6vw,40px);font-weight:800;line-height:1.2;margin-bottom:14px}
+.sec-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 50px;font-size:16px}
+.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.25s}
+.card:hover{border-color:rgba(80,200,20,.45);transform:translateY(-3px)}
+.ico{width:52px;height:52px;border-radius:14px;background:rgba(80,200,20,.1);border:1px solid rgba(80,200,20,.25);display:grid;place-items:center;margin-bottom:20px}
+.card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+.card p{color:var(--muted);font-size:14px}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+
+/* why */
+#why{background:var(--bg2)}
+.why-big{grid-column:span 2;display:flex;gap:28px;align-items:center;
+  background:radial-gradient(circle at 85% 50%,rgba(80,200,20,.16),transparent 55%),linear-gradient(180deg,var(--card2),var(--card))}
+.big-num{font-size:84px;font-weight:900;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stars{color:var(--gold);letter-spacing:3px;font-size:20px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;justify-content:center}
+.tags span{font-size:13px;padding:7px 14px;border-radius:30px;background:#122029;border:1px solid var(--line);color:#cfdcd6}
+
+/* prices */
+.price-row{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;transition:.2s}
+.price-row:hover{border-color:rgba(80,200,20,.45)}
+.price-row .name{flex:1;font-weight:600;font-size:15px}
+.price-row .val{color:var(--gold);font-weight:800;white-space:nowrap;font-size:14px}
+.note{text-align:center;color:var(--muted);font-size:14px;margin-top:28px}
+
+
+/* reviews */
+#reviews{background:var(--bg2)}
+.rv{display:flex;flex-direction:column}
+.rv q{quotes:none;font-size:15px;color:#e3ece8;flex:1;margin:14px 0 22px}
+.rv .who{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.ava{width:42px;height:42px;border-radius:50%;background:var(--grad);color:#0a1219;font-weight:800;display:grid;place-items:center;font-size:15px}
+.who b{display:block;font-size:14px}
+.who small{color:var(--muted);font-size:12px}
+.center{text-align:center;margin-top:40px}
+
+/* form */
+.cta{position:relative;border-radius:28px;padding:60px;overflow:hidden;
+  background:radial-gradient(circle at 100% 0%,rgba(80,200,20,.25),transparent 50%),linear-gradient(135deg,#13261a,#0c161d);border:1px solid rgba(80,200,20,.3);
+  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.cta h2{font-size:clamp(26px,3.4vw,40px);font-weight:800;line-height:1.15;margin-bottom:14px}
+.cta p{color:var(--muted)}
+form{display:flex;flex-direction:column;gap:14px}
+input,select{font-family:inherit;font-size:15px;padding:16px 18px;border-radius:12px;border:1px solid var(--line);background:#0a1219;color:var(--text);outline:none;width:100%}
+input:focus,select:focus{border-color:var(--gold)}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--muted)}
+.agree input{width:16px;height:16px;margin-top:2px;accent-color:var(--gold)}
+
+/* contacts */
+.contacts{display:grid;grid-template-columns:1fr 1.4fr;gap:20px}
+.c-list{display:flex;flex-direction:column;gap:22px}
+.c-item{display:flex;gap:16px}
+.c-item .ico{margin:0;width:46px;height:46px}
+.c-item small{display:block;color:var(--muted);font-size:13px}
+.c-item b{font-size:16px}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:400px}
+.map iframe{width:100%;height:100%;min-height:400px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.6) brightness(.95)}
+
+footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:14px}
+.ftr{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
+
+/* floating */
+.float{position:fixed;right:20px;bottom:20px;display:flex;flex-direction:column;gap:12px;z-index:60}
+.float a{width:56px;height:56px;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 6px 20px rgba(70,190,15,.4);transition:.2s}
+.float a:hover{transform:scale(1.08)}
+
+/* yandex form */
+.yform{display:none;background:#fff;border-radius:16px;overflow:hidden}
+.yform iframe{display:block;width:100%;height:820px;border:0}
+
+/* booking modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(4,8,12,.75);backdrop-filter:blur(6px)}
+.modal.open{display:flex}
+.modal-box{position:relative;width:100%;max-width:420px;background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid rgba(80,200,20,.35);border-radius:22px;padding:32px 26px 26px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.modal-box h3{font-size:22px;font-weight:800;margin-bottom:6px}
+.modal-box p{color:var(--muted);font-size:14px;margin-bottom:22px}
+.modal-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#0a1219;color:var(--text);font-size:22px;cursor:pointer}
+.m-btn{display:flex;align-items:center;gap:14px;width:100%;padding:16px 18px;border-radius:14px;font-weight:700;font-size:16px;color:#fff;margin-top:12px;transition:.2s;text-align:left}
+.m-btn:hover{transform:translateY(-2px)}
+.m-btn small{display:block;font-weight:500;font-size:12px;opacity:.85}
+.m-btn.wa{background:#25d366}
+.m-btn.mx{background:linear-gradient(135deg,#3b82f6,#8b5cf6)}
+.m-btn.tel{background:#0a1219;border:1px solid var(--line)}
+.m-hint{font-size:12px;color:var(--muted);margin-top:14px;min-height:1em}
+
+@media (max-width:1100px){nav,.rate-pill,.hdr-right .phone{display:none}}
+@media (max-width:900px){
+  .grid3{grid-template-columns:1fr 1fr}
+  .why-big{grid-column:span 2}
+  .cta,.contacts{grid-template-columns:1fr}
+  .cta{padding:36px 24px}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .container{padding:0 16px}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .why-big{grid-column:auto;flex-direction:column;align-items:flex-start}
+  .hdr-right{display:none}
+  .burger{display:block}
+  .mob-menu.open{display:flex;flex-direction:column;gap:16px;padding:20px 16px 26px;border-top:1px solid var(--line);font-weight:600}
+  .hero h1{font-size:26px}
+  .city{white-space:normal}
+  .hero-btns .btn{width:100%}
+  .hero-car{height:200px}
+  .podium{height:60px}
+  .hero-car .car{bottom:36px}
+  .float a{width:50px;height:50px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container hdr">
+    <a href="#" class="logo">
+      <div class="logo-ico">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#0a1219"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      </div>
+      <div><b>ГИБРИД СЕРВИС</b><small>обслуживание гибридов</small></div>
+    </a>
+    <nav>
+      <a href="#services">Услуги</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="rate-pill" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001034421903/tab/reviews" target="_blank" rel="noopener" title="Отзывы в 2ГИС"><i class="gold" style="font-style:normal">★</i> <b>5.0</b><span>(648)</span></a>
+    <div class="hdr-right">
+      <a class="phone" href="tel:+74217344444">+7 (4217) 34-44-44</a>
+      <a class="msg wa" href="https://wa.me/79243044344" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3z"/></svg>
+      </a>
+      <a class="msg mx" href="https://max.ru/u/f9LHodD0cOKNkbXtRP22Ia8ludOdKRG0DVXyn0Krheq2l91NiXPhXyL8NU4" target="_blank" rel="noopener" aria-label="Max">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M12 3a9 9 0 1 0 0 18c-2 0-3-1-3-1"/><circle cx="12" cy="12" r="4"/></svg>
+      </a>
+      <a href="#book" data-book class="btn btn-gold btn-sm">Записаться</a>
+    </div>
+    <button class="burger" aria-label="Меню" onclick="document.querySelector('.mob-menu').classList.toggle('open')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="mob-menu" onclick="this.classList.remove('open')">
+    <a href="#services">Услуги</a><a href="#prices">Цены</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a>
+    <a class="phone gold" href="tel:+74217344444">+7 (4217) 34-44-44</a>
+    <div style="font-size:13px;color:var(--muted)">Аллея Труда, 8/3Б · Пн–Сб с 9:00, по записи</div>
+    <a href="#book" data-book class="btn btn-gold">Записаться</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="badge"><span class="gold">★</span> 5.0 в 2ГИС · 648 оценок</div>
+    <h1>Ремонт и обслуживание <br>гибридов в <span class="gold city">Комсомольске-на-Амуре</span></h1>
+    <p class="lead">Специализированный сервис по обслуживанию гибридных автомобилей и чип‑тюнинга. Гибкие цены.</p>
+    <div class="hero-btns">
+      <a href="#book" data-book class="btn btn-gold">Записаться на диагностику</a>
+      <a href="#prices" class="btn btn-dark">Смотреть услуги</a>
+    </div>
+    <div class="ticks">
+      <span><i class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0a1219" stroke-width="4"><path d="M4 12l5 5L20 6"/></svg></i>Рейтинг 5.0</span>
+      <span><i class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0a1219" stroke-width="4"><path d="M4 12l5 5L20 6"/></svg></i>Запчасти в наличии</span>
+      <span><i class="tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0a1219" stroke-width="4"><path d="M4 12l5 5L20 6"/></svg></i>Комфортная зона ожидания</span>
+    </div>
+    <div class="hero-car">
+      <div class="podium"></div>
+      <!-- Toyota Prius (силуэт, вид сбоку, перед справа) -->
+      <svg class="car" viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Toyota Prius Hybrid">
+        <defs>
+          <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a4d5a"/><stop offset=".5" stop-color="#16232c"/><stop offset="1" stop-color="#081016"/></linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a6272"/><stop offset="1" stop-color="#0d1820"/></linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- кузов: высокая обрубленная корма, дуга крыши с пиком впереди, длинное покатое лобовое и низкий нос -->
+        <path d="M44 160 L40 118 Q40 100 58 96 L74 93
+                 C150 72 230 40 318 32
+                 C372 27 410 30 440 42
+                 C482 60 522 82 566 96
+                 C606 104 636 110 650 122
+                 Q664 138 652 158
+                 L566 160 A46 46 0 0 0 474 160
+                 L198 160 A46 46 0 0 0 106 160 Z"
+              fill="url(#body)" stroke="#46606e" stroke-width="1.5"/>
+        <!-- остекление -->
+        <path d="M96 96 C170 76 240 50 318 42 C368 38 404 42 432 52 L494 88 L330 96 Z" fill="url(#glass)" stroke="#46606e"/>
+        <!-- стойки -->
+        <path d="M330 41 L330 97 M196 66 L210 97" stroke="#16232c" stroke-width="6"/>
+        <!-- линия дверей и боковина -->
+        <path d="M330 97 L326 156 M210 97 L204 156" stroke="#26394a" stroke-width="1.5"/>
+        <path d="M118 124 C260 118 420 116 560 112" stroke="#2c4250" stroke-width="2" fill="none"/>
+        <!-- фара-бумеранг и ДХО -->
+        <path d="M584 104 L640 116 L628 122 Z" fill="#c8ff9a" filter="url(#glow)"/>
+        <path d="M560 100 L640 116" stroke="#5fd615" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+        <!-- задний фонарь -->
+        <path d="M42 104 L52 102 L50 140 L42 138 Z" fill="#ff3b30" filter="url(#glow)"/>
+        <!-- зелёная подсветка порога -->
+        <path d="M208 158 H466" stroke="#5fd615" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+        <!-- колёса -->
+        <g><circle cx="152" cy="160" r="38" fill="#071015"/><circle cx="152" cy="160" r="27" fill="#13212a" stroke="#5fd615" stroke-width="2"/><circle cx="152" cy="160" r="8" fill="#5fd615"/></g>
+        <g><circle cx="520" cy="160" r="38" fill="#071015"/><circle cx="520" cy="160" r="27" fill="#13212a" stroke="#5fd615" stroke-width="2"/><circle cx="520" cy="160" r="8" fill="#5fd615"/></g>
+        <text x="268" y="144" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="16" fill="#5fd615" letter-spacing="4" filter="url(#glow)">HYBRID</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <h2 class="sec-title">Что мы делаем</h2>
+    <p class="sec-sub">Специализированный сервис по обслуживанию гибридных автомобилей и чип‑тюнинга</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><rect x="2" y="7" width="18" height="12" rx="2"/><path d="M22 11v4M11 10l-2 4h4l-2 4"/></svg></div>
+        <h3>Ремонт гибридных автомобилей</h3>
+        <p>Обслуживание и ремонт гибридов — например, замена картриджа помпы на Honda Shuttle Hybrid, ремонт ходовой части</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M6 13l3-3 3 2 5-5"/></svg></div>
+        <h3>Компьютерная диагностика</h3>
+        <p>Диагностика ошибок с подробным разбором результата — объясняем, что, как и куда</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M12 2c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></div>
+        <h3>Замена масла и техжидкостей</h3>
+        <p>Замена масла в двигателе и РКПП, аппаратная замена масла, замена техжидкостей, калибровка робота</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
+        <h3>Чип‑тюнинг и тюнинг</h3>
+        <p>Тюнинг двигателя, выхлопной системы и подвески, установка ксенона, шумоизоляция салона, обвесы</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div>
+        <h3>Ремонт электронных систем</h3>
+        <p>Автоэлектрика, стартеры и генераторы, автосигнализации — в том числе выезд к месту поломки</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5M11 8v6M8 11h6"/></svg></div>
+        <h3>Подбор авто перед покупкой</h3>
+        <p>Поможем выбрать автомобиль и проверим его перед покупкой</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <h2 class="sec-title">Почему выбирают <span class="gold">Гибрид Сервис</span></h2>
+    <p class="sec-sub">Так о нас говорят клиенты в отзывах 2ГИС</p>
+    <div class="grid3">
+      <div class="card why-big">
+        <div>
+          <div class="big-num">5.0</div>
+          <div class="stars">★★★★★</div>
+        </div>
+        <div>
+          <h3>Рейтинг 5.0 в 2ГИС</h3>
+          <p>648 оценок и более 470 отзывов. «Почитал отзывы, было опасение, что накручено… Оказалось, что ещё как может».</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M2 21v-1a7 7 0 0 1 14 0v1M17 3a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6"/></svg></div>
+        <h3>Специализация на гибридах</h3>
+        <p>«Про гибриды в городе больше их навряд ли кто‑то знает» — из отзыва клиента</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M3 9l9-6 9 6v12H3z"/><path d="M8 21v-7h8v7"/></svg></div>
+        <h3>Запчасти в наличии</h3>
+        <p>Запчасти для иномарок — нужные детали часто есть в наличии</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg></div>
+        <h3>Комната ожидания</h3>
+        <p>Кожаные диваны, кофе и чай, телевизор и детский уголок — пока мы занимаемся вашим авто</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Честно и без навязывания</h3>
+        <p>Гибкие цены, объясняем каждую работу, не навязываем лишнего. Оплата наличными или через банк</p>
+      </div>
+    </div>
+    <div class="tags">
+      <span>Отличный сервис</span><span>Быстро и качественно</span><span>Грамотный персонал</span><span>Адекватные цены</span>
+      <span>Уютная комната ожидания</span><span>Индивидуальный подход</span><span>Чисто и аккуратно</span><span>Детский уголок</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section id="prices">
+  <div class="container">
+    <h2 class="sec-title">Услуги и стоимость</h2>
+    <p class="sec-sub">Гибкие цены — уточняйте стоимость по телефону или в WhatsApp</p>
+    <div class="grid2">
+      <a href="#book" data-book class="price-row"><span class="name">Компьютерная диагностика гибрида</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Ремонт гибридных автомобилей</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Замена масла в двигателе</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Аппаратная замена масла</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Замена жидкостей и калибровка робота</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Ремонт ходовой части</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Ремонт стартеров и генераторов</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Ремонт электронных систем авто</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Чип‑тюнинг двигателя</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Автосигнализации</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Шумоизоляция салона</span><span class="val">узнать цену →</span></a>
+      <a href="#book" data-book class="price-row"><span class="name">Подбор автомобиля перед покупкой</span><span class="val">узнать цену →</span></a>
+    </div>
+    <p class="note">Оплата наличными или через банк</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <h2 class="sec-title">Что говорят клиенты в <span class="gold">2ГИС</span></h2>
+    <p class="sec-sub">Подтверждённые отзывы реальных посетителей</p>
+    <div class="grid3">
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Компьютерная диагностика гибрида — в итоге 15 листов цифр и 10‑минутное пояснение что, как и куда. Ничего лишнего, всё строго и по факту!</q>
+        <div class="who"><div class="ava">АБ</div><div><b>Анатолий Борисенко</b><small>Диагностика гибрида</small></div></div></div>
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Быстро и качественно починили Honda Shuttle Hybrid (замена картриджа помпы), запчасти есть в наличии. На гибриде только к ним.</q>
+        <div class="who"><div class="ava">МС</div><div><b>Максим Саяпин</b><small>Honda Shuttle Hybrid</small></div></div></div>
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Приехал на замену масла в двигателе, РКПП и калибровку робота. Всё сделали чётко. Исправили пару косяков за другим сервисом.</q>
+        <div class="who"><div class="ava">СГ</div><div><b>Сергей Гавриков</b><small>Замена масла, калибровка</small></div></div></div>
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Встретил Антон — провёл диагностику, подробно и понятно объяснил каждый момент. Чувствуется профессионализм и уважительное отношение.</q>
+        <div class="who"><div class="ava">ИМ</div><div><b>Ирина Михальченко</b><small>Диагностика ошибок</small></div></div></div>
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Были проблемы с заводкой Honda Insight, вызвал автоэлектрика на место стоянки. Точно определили проблему, устранили.</q>
+        <div class="who"><div class="ava">Р</div><div><b>Рус</b><small>Honda Insight, выезд</small></div></div></div>
+      <div class="card rv"><div class="stars">★★★★★</div>
+        <q>Выехали на место поломки и сопроводили до сервиса. Исправили неисправность раньше предполагаемого срока.</q>
+        <div class="who"><div class="ava">ВК</div><div><b>Виктория Корнеева</b><small>Помощь на дороге</small></div></div></div>
+    </div>
+    <div class="center">
+      <a class="btn btn-dark" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001034421903/tab/reviews" target="_blank" rel="noopener">Все 470+ отзывов в 2ГИС →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="form">
+  <div class="container">
+    <div class="cta">
+      <div>
+        <h2>Запишитесь на <span class="gold">диагностику</span></h2>
+        <p>Оставьте заявку — мы свяжемся с вами. Или позвоните: <a class="gold" style="white-space:nowrap" href="tel:+74217344444"><b>+7 (4217) 34-44-44</b></a></p>
+      </div>
+      <div id="yform" class="yform"></div>
+      <form id="lead">
+        <input name="name" placeholder="Ваше имя" required>
+        <input name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+        <input name="car" placeholder="Марка и модель авто">
+        <select name="service">
+          <option>Диагностика</option><option>Ремонт гибрида</option><option>Замена масла / жидкостей</option>
+          <option>Чип‑тюнинг / тюнинг</option><option>Автоэлектрика</option><option>Другое</option>
+        </select>
+        <button class="btn btn-gold" type="submit">Записаться на диагностику</button>
+        <label class="agree"><input type="checkbox" required checked> Я соглашаюсь на обработку персональных данных</label>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" style="padding-top:0">
+  <div class="container">
+    <h2 class="sec-title">Как нас найти</h2>
+    <p class="sec-sub">Центральный округ, рядом с остановкой «Пл. Кирова» — 800 м пешком</p>
+    <div class="contacts">
+      <div class="card c-list">
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><small>Адрес</small><b>ул. Аллея Труда, 8/3Б</b><br><small>Комсомольск‑на‑Амуре, 681000</small></div></div>
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><small>Часы работы</small><b>Пн–Сб с 9:00</b><br><small>по предварительной записи</small></div></div>
+        <div class="c-item"><div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5fd615" stroke-width="2"><path d="M22 17v3a2 2 0 0 1-2 2A19 19 0 0 1 2 4a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 12l5 2z"/></svg></div>
+          <div><small>Телефон</small><a href="tel:+74217344444"><b>+7 (4217) 34-44-44</b></a><br><small>WhatsApp: <a class="gold" href="https://wa.me/79243044344" target="_blank" rel="noopener">+7 (924) 304-43-44</a></small></div></div>
+        <a class="btn btn-gold" href="https://2gis.ru/komsomolsk-on-amur/firm/70000001034421903" target="_blank" rel="noopener">Построить маршрут в 2ГИС →</a>
+      </div>
+      <div class="map">
+        <iframe loading="lazy" title="Карта" src="https://www.openstreetmap.org/export/embed.html?bbox=137.0305%2C50.5420%2C137.0445%2C50.5480&amp;layer=mapnik&amp;marker=50.544985%2C137.037566"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container ftr">
+    <a href="#" class="logo">
+      <div class="logo-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0a1219"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+      <div><b style="color:var(--text)">ГИБРИД СЕРВИС</b><small>Комсомольск‑на‑Амуре</small></div>
+    </a>
+    <div>ул. Аллея Труда, 8/3Б · <a href="tel:+74217344444">+7 (4217) 34-44-44</a></div>
+    <div>★ 5.0 (648 оценок) · 2ГИС</div>
+    <div style="width:100%;font-size:12px">© <span id="y"></span> Гибрид Сервис. Все права защищены.</div>
+  </div>
+</footer>
+
+<div class="float">
+  <a href="tel:+74217344444" aria-label="Позвонить"><svg width="22" height="22" viewBox="0 0 24 24" fill="#0a1219"><path d="M22 17v3a2 2 0 0 1-2 2A19 19 0 0 1 2 4a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 12l5 2z"/></svg></a>
+  <a href="https://wa.me/79243044344" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0a1219"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3z"/></svg></a>
+  <a href="https://max.ru/u/f9LHodD0cOKNkbXtRP22Ia8ludOdKRG0DVXyn0Krheq2l91NiXPhXyL8NU4" target="_blank" rel="noopener" aria-label="Max"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a1219" stroke-width="2.6"><path d="M12 3a9 9 0 1 0 0 18c-2 0-3-1-3-1"/><circle cx="12" cy="12" r="4"/></svg></a>
+</div>
+
+<div class="modal" id="book" role="dialog" aria-modal="true" aria-labelledby="book-title">
+  <div class="modal-box">
+    <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+    <h3 id="book-title">Записаться</h3>
+    <p id="book-sub">Выберите, где вам удобнее написать</p>
+    <a class="m-btn wa" id="book-wa" href="https://wa.me/79243044344" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3z"/></svg>
+      <span>Записаться в WhatsApp<small>+7 (924) 304-43-44</small></span>
+    </a>
+    <a class="m-btn mx" id="book-mx" href="https://max.ru/u/f9LHodD0cOKNkbXtRP22Ia8ludOdKRG0DVXyn0Krheq2l91NiXPhXyL8NU4" target="_blank" rel="noopener">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M12 3a9 9 0 1 0 0 18c-2 0-3-1-3-1"/><circle cx="12" cy="12" r="4"/></svg>
+      <span>Записаться в Max<small>чат «Гибрид Сервис»</small></span>
+    </a>
+    <a class="m-btn tel" href="tel:+74217344444">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="#5fd615"><path d="M22 17v3a2 2 0 0 1-2 2A19 19 0 0 1 2 4a2 2 0 0 1 2-2h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 12l5 2z"/></svg>
+      <span>Позвонить<small>+7 (4217) 34-44-44</small></span>
+    </a>
+    <div class="m-hint" id="book-hint"></div>
+  </div>
+</div>
+
+<script>
+// ===== Яндекс Форма =====
+// Вставьте сюда ссылку на вашу форму, например 'https://forms.yandex.ru/u/66f1a2b3c4d5e6f7a8b9c0d1/'
+// Пока ссылка пустая, на сайте показывается обычная форма с отправкой в WhatsApp / Max.
+const YANDEX_FORM_URL = 'https://forms.yandex.ru/u/6abfb54590290248605bd747/';
+
+(function () {
+  const m = YANDEX_FORM_URL.match(/forms\.yandex\.ru\/(?:u|cloud)\/([0-9a-z]+)/i);
+  // Яндекс разрешает встраивать форму только на сайтах с адресом http(s)://, при открытии файла с диска она не покажется
+  if (!m || !/^https?:$/.test(location.protocol)) return;
+  const box = document.getElementById('yform');
+  const src = YANDEX_FORM_URL.split('?')[0].replace(/\/?$/, '/');
+  box.innerHTML = '<iframe src="' + src + '" name="ya-form-' + m[1] + '" title="Запись на диагностику"></iframe>';
+  box.style.display = 'block';
+  document.getElementById('lead').style.display = 'none';
+  const s = document.createElement('script');
+  s.src = 'https://forms.yandex.ru/_static/embed.js'; // подгоняет высоту формы под содержимое
+  document.body.appendChild(s);
+})();
+
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// Плавная прокрутка к разделам — работает и при открытии файла напрямую, и во встроенных просмотрщиках
+document.querySelectorAll('a[href^="#"]:not([data-book])').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const target = id ? document.getElementById(id) : null;
+    const top = target ? target.getBoundingClientRect().top + window.scrollY - 80 : 0;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+    document.querySelector('.mob-menu').classList.remove('open');
+  });
+});
+
+const WA = 'https://wa.me/79243044344';
+const modal = document.getElementById('book');
+const waBtn = document.getElementById('book-wa');
+const hint = document.getElementById('book-hint');
+let bookText = '';
+
+function openBook(text) {
+  bookText = text;
+  waBtn.href = WA + '?text=' + encodeURIComponent(text);
+  hint.textContent = '';
+  modal.classList.add('open');
+}
+function closeBook() { modal.classList.remove('open'); }
+
+document.querySelectorAll('[data-book]').forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    const name = el.querySelector('.name');
+    openBook('Здравствуйте! Хочу записаться' + (name ? ' на услугу: ' + name.textContent : '') + '.');
+  });
+});
+
+modal.addEventListener('click', function (e) {
+  if (e.target === modal || e.target.closest('.modal-close')) closeBook();
+});
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeBook(); });
+
+// Max не умеет подставлять текст по ссылке — копируем его в буфер, чтобы клиент просто вставил
+document.getElementById('book-mx').addEventListener('click', function () {
+  try {
+    navigator.clipboard.writeText(bookText).then(function () {
+      hint.textContent = 'Текст заявки скопирован — вставьте его в чат Max';
+    });
+  } catch (err) {}
+});
+
+document.getElementById('lead').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const f = new FormData(this);
+  openBook('Здравствуйте! Хочу записаться.\n' +
+    'Имя: ' + f.get('name') + '\nТелефон: ' + f.get('phone') +
+    (f.get('car') ? '\nАвто: ' + f.get('car') : '') + '\nУслуга: ' + f.get('service'));
+});
+</script>
+</body>
+</html>
